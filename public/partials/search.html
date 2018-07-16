@@ -1,0 +1,18 @@
+<h2>Search for Previous Messages</h2>
+<md-input-container class="md-block" flex-gt-xs>
+            <label>Try Searching Here....</label>
+            <input ng-model="search" ng-change="initiateSearch()">
+          </md-input-container>
+          
+<md-subheader class="md-no-sticky">Search Results</md-subheader>
+        <md-list-item class="md-3-line md-long-text" ng-repeat="msg in hits">
+          <img ng-src="{{todos[0].face}}?25" class="md-avatar" alt="{{todos[0].who}}" />
+          <div class="md-list-item-text">
+            <h3>{{ msg.from_first_name}} {{ msg.from_last_name }}</h3>
+            <p ng-bind-html="msg.body_raw | linky:'_blank'">
+             
+            </p>
+            <i>{{msg.time_pretty}}</i>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>

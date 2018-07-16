@@ -1,0 +1,33 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.29.0",
+    "cors": "^2.8.4",
+    "csvtojson": "^2.0.6",
+    "express": "^4.16.3",
+    "fetch": "^1.1.0",
+    "firebase-admin": "~5.12.1",
+    "firebase-functions": "^1.0.3",
+    "get-urls": "^7.2.0",
+    "http": "0.0.0",
+    "linkifyjs": "^2.1.6",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "node-article-extractor": "^1.1.2",
+    "numeral": "^2.0.6",
+    "promise": "^8.0.1",
+    "query-string": "^6.1.0",
+    "request": "^2.87.0",
+    "twilio": "^3.17.5",
+    "unfluff": "^3.0.1"
+  },
+  "private": true
+}

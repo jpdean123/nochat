@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+    <!-- Meta-Information -->
+    <title>NoChat App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="No Chat App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Our Website CSS Styles -->
+    <!-- <link href="js/libraries/liveSearch.css" rel="stylesheet"> -->
+   <!--  <link href="css/flat-ui.css" rel="stylesheet"> -->
+
+
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <!--<link href="css/custom.css" rel="stylesheet">-->
+
+    
+<!-- Firebase -->
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-functions.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAYnHI778eor0-TZoPvSkiY-uR86ij21Yk",
+    authDomain: "nochat-c4f7d.firebaseapp.com",
+    databaseURL: "https://nochat-c4f7d.firebaseio.com",
+    projectId: "nochat-c4f7d",
+    storageBucket: "nochat-c4f7d.appspot.com",
+    messagingSenderId: "873325420286"
+  };
+  firebase.initializeApp(config);
+
+</script>
+
+
+
+<!-- Vendor: Javascripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="js/libraries/moment-duration-format.js"></script>
+<script src="bower_components/moment-timezone/moment-timezone.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+
+
+<!-- mathJS-->
+
+<!-- Vendor: Angular, followed by our custom Javascripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+<script src="js/libraries/ui-bootstrap-2.5.0.min.js" type="text/javascript"></script>
+<script src="js/libraries/ui-bootstrap-tpls-2.5.0.min.js" type="text/javascript"></script>
+<script src="js/libraries/liveSearch.js" type="text/javascript"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
+
+
+
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+
+<script src="js/libraries/ui-bootstrap-2.5.0.min.js" type="text/javascript"></script>
+<script src="js/libraries/ui-bootstrap-tpls-2.5.0.min.js" type="text/javascript"></script>
+<script src="js/libraries/liveSearch.js" type="text/javascript"></script>
+<script src="js/libraries/flat-ui.js" type="text/javascript"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script type="text/javascript">
+    var algolia_client = algoliasearch('UJJ7DYW7UW', '060b8224a7963d27090f9811b708fcf0');
+    var algolia_messages = algolia_client.initIndex('all_messages');
+
+</script>
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<script type="text/javascript">
+
+</script>
+
+</head>
+<body ng-app="nochatApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Our Website Content Goes Here -->
+<!--<div ng-include='"templates/header.html"'></div>-->
+<div ng-view></div>
+<!--<div ng-include='"templates/footer.html"'></div>-->
+
+
+
+<!-- Our Website Javascripts -->
+<script src="js/main.js"></script>
+<script src="js/scripts/controllers/searchController.js"></script> 
+<script src="js/scripts/controllers/uploadController.js"></script> 
+
+
+
+
+
+
+
+</body>
+</html>

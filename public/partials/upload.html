@@ -1,0 +1,18 @@
+ <md-content layout-padding>
+        <div>
+
+  
+          <md-input-container flex="20">
+            <label>Fuelly Data</label>
+            <div style="margin-top: 2em;">
+            	<file-input on-change="fileSelected($event)"></file-input>
+				<md-progress-circular md-mode="determinate" value="{{fileProgress}}" class="md-accent" md-diameter="40" ng-show="fileProgress"></md-progress-circular>
+            </div>
+          </md-input-container>
+        </div>
+
+
+
+  </md-content>
+  
+  <button ng-click="getjson()">Get json</button>

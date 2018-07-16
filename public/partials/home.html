@@ -1,0 +1,69 @@
+<h2>Create a User</h2>
+
+  <md-content layout-padding>
+    <div>
+
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>First Name</label>
+            <input ng-model="user.first_name">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Last Name</label>
+            <input ng-model="user.last_name">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Phone Number</label>
+            <input ng-model="user.phone_number">
+          </md-input-container>
+
+         </div>
+         <button ng-click="createUser()">Save User</button>
+    </div>
+  </md-content>
+  
+  <h2>Create a Topic</h2>
+
+  <md-content layout-padding>
+    <div>
+
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Title</label>
+            <input ng-model="topic.title">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Description</label>
+            <input ng-model="topic.description">
+          </md-input-container>
+
+         </div>
+         <button ng-click="newTopic()">Save User</button>
+    </div>
+  </md-content>
+  
+  <h2>Create a Helper Word</h2>
+
+  <md-content layout-padding>
+    <div>
+
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Term</label>
+            <input ng-model="helper.term">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Description</label>
+            <input ng-model="helper.description">
+          </md-input-container>
+           <md-input-container class="md-block" flex-gt-xs>
+            <label>Defualt Response</label>
+            <input ng-model="helper.default_response">
+          </md-input-container>
+
+         </div>
+         <button ng-click="newHelper()">Save User</button>
+    </div>
+  </md-content>
+
+
