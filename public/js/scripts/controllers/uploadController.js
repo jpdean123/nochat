@@ -42,21 +42,18 @@ $scope.fileSelected = function(e) {
     console.log(err);
   },
   function complete() {
-      storageRef.getDownloadURL().then(function(url) {
-        console.log(url);
-        getJsonOfFile(url);
-    }).catch(function(error) {
-      console.log(error);
-    });
+      converter(file);
   }
   )  
 };
 
 
-$scope.getjson = function getJsonOfFile(url) {
-    var file = "https://firebasestorage.googleapis.com/v0/b/nochat-c4f7d.appspot.com/o/fuelly_data%2F-LHLA3UhPmWcpsPt-R34.csv?alt=media&token=a3566a79-3af5-4c77-98ba-e4d7e8e10b0c";
+$scope.getjson = function (bucket, nm) {
+  console.log(url);
+    var file = url;
     var data = {
-        filepath: file
+        fileBucket: bucket,
+        fileName: nm
     };
 
 var csvtojson = firebase.functions().httpsCallable('csvToJson');
@@ -68,6 +65,93 @@ console.log(result);
 
 
 }
+
+function converter(f){
+   Papa.parse(f, {
+  header:true,
+  worker: true,
+  complete: function(results) {
+    processJSON(results.data);
+  }
+});
+};
+
+
+var rawdata;
+
+function processJSON (d) {
+  //console.log(d);
+  rawdata = d;
+  console.log(Object.keys(rawdata[49]).length);
+  parseKeys(d).then(function(r){
+    //console.log(r);
+    rawdata.sort(compare);
+    calculations(rawdata).then(function(r){
+      console.log('done');
+    });
+  })
+
+};
+
+function parseKeys (d){
+  var promises = [];
+  for (var i = 0; i < rawdata.length; i++) {
+    var pr = function() {
+      var deferred = $q.defer();
+      if (Object.keys(rawdata[i]).length > 1) {
+         angular.forEach(rawdata[i], function(value, key) {
+         var oldName = key;
+          var newName = key.trim();
+          rename(rawdata[i],oldName, newName);
+          deferred.resolve('finished');
+      });
+      } else {
+        rawdata.splice(i,1);
+      }
+     
+    };
+    promises.push(pr());
+   };
+   return $q.all(promises)
+};
+
+
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  const odometerA = a.odometer.toUpperCase();
+  const odometerB = b.odometer.toUpperCase();
+
+  let comparison = 0;
+  if (odometerA > odometerB) {
+    comparison = 1;
+  } else if (odometerA < odometerB) {
+    comparison = -1;
+  }
+  return comparison;
+};
+
+
+function rename(obj, oldName, newName) {
+    if(!obj.hasOwnProperty(oldName)) {
+        return false;
+    }
+
+    obj[newName] = obj[oldName];
+    delete obj[oldName];
+    return true;
+};
+
+
+function calculations (){
+  var deferred = $q.defer();
+
+  
+
+  return deferred.promise;
+};
+
+
+
 
 });
 

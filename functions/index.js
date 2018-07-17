@@ -20,6 +20,7 @@ var fetchUrl = require("fetch").fetchUrl;
 const extractor = require('node-article-extractor');
 var tools = require('./tools');
 
+
 const accountSid = tools.twilio_sid();
 const authToken = tools.twilio_auth_token();
 
@@ -277,17 +278,3 @@ const getExternal = function(externalArr, path) {
 
 
 
-// functions for easy charge up stuff  -----------------------------------------------------------------------------------------------------------------------
-
-exports.csvToJson = functions.https.onCall((req, res) => {
-console.log(req.filepath);
-csvtojson()
-.fromFile(req.filepath)
-.then((jsonObj)=>{
-    console.log(jsonObj);
-     return jsonObj
-})
-
-
- 
-});
