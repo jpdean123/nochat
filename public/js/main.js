@@ -29,6 +29,7 @@ app.config(function ($locationProvider, $routeProvider, $mdThemingProvider) {
     .when("/", {templateUrl: "partials/home.html", controller: "HomeCtrl"})
     .when("/search", {templateUrl: "partials/search.html", controller: "SearchCtrl"})
     .when("/upload", {templateUrl: "partials/upload.html", controller: "UploadCtrl"})
+    .when("/cedemo", {templateUrl: "partials/demo.html", controller: "ce_demo_ctrl"})
     .otherwise("/");
 
 

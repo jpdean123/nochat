@@ -33,10 +33,10 @@ var db = admin.database();
 
 const algoliasearch = require('algoliasearch');
 
-const ALGOLIA_ID = algolia_id();
+const ALGOLIA_ID = tools.algolia_id();
 
-const ALGOLIA_ADMIN_KEY = algolia_admin_key();
-const ALGOLIA_SEARCH_KEY = algolia_search_key();
+const ALGOLIA_ADMIN_KEY = tools.algolia_admin_key();
+const ALGOLIA_SEARCH_KEY = tools.algolia_search_key();
 
 const ALGOLIA_INDEX_NAME = 'all_messages';
 const client = algoliasearch(ALGOLIA_ID, ALGOLIA_ADMIN_KEY);

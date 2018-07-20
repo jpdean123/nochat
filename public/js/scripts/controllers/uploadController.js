@@ -82,7 +82,6 @@ var rawdata;
 function processJSON (d) {
   //console.log(d);
   rawdata = d;
-  console.log(Object.keys(rawdata[49]).length);
   parseKeys(d).then(function(r){
     //console.log(r);
     rawdata.sort(compare);
@@ -142,11 +141,29 @@ function rename(obj, oldName, newName) {
 };
 
 
-function calculations (){
+$scope.output = {};
+$scope.output.fillups = {};
+$scope.output.times = [];
+
+
+function calculations (raw){
   var deferred = $q.defer();
-
-  
-
+    $scope.output.fillups.count = raw.length;
+    $scope.output.fillups.cost =raw.length * 25;
+    console.log(raw);
+    for (var i = 0; i < raw.length; i++) {
+      //process time
+      $scope.output.times.push(moment(raw[i].date_added));
+      
+      if(i == raw.length - 1) {
+        console.log('last one happened');
+        $scope.output.fillups.most_recent = moment.max($scope.output.times);
+        $scope.output.fillups.least_recent = moment.min($scope.output.times);
+       
+      }
+      
+    }
+    
   return deferred.promise;
 };
 
